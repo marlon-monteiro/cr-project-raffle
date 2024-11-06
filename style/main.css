@@ -1,0 +1,48 @@
+main {
+  margin: 2.875rem auto;
+
+  @media (min-width: 80em) {
+    margin-top: 5.56rem;
+  }
+}
+
+#title {
+  width: 19.93rem;
+  height: 8.5rem;
+
+  @media (min-width: 80em) {
+    width: 31.75rem;
+    height: 14rem;
+    margin: 0;
+  }
+
+  & h3 {
+    margin-bottom: 0.5rem;
+    font: var(--text-overline);
+    background: linear-gradient(
+      90deg,
+      var(--content-secondary) 0%,
+      var(--background-gray) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+  }
+
+  & h1 {
+    font: var(--text-display-medium);
+    color: var(--content-primary);
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 80em) {
+    & h3 {
+      width: 32rem;
+    }
+
+    & h1 {
+      width: 32rem;
+      font: var(--text-display-large);
+    }
+  }
+}
