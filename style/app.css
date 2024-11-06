@@ -1,0 +1,13 @@
+#app {
+  width: 19.93rem;
+  height: 100%;
+
+  margin: 2.75rem auto;
+
+  @media (min-width: 80em) {
+    width: 68.62rem;
+
+    margin: 4.75rem auto;
+
+  }
+}

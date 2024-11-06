@@ -1,0 +1,20 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 0.68rem;
+
+  @media (min-width: 80em) {
+    justify-content: flex-start;
+  }
+
+  & img {
+    width: 2.375rem;
+    height: 2.375rem;
+  }
+
+  & h1 {
+    font: var(--text-display-small);
+    color: var(--content-primary);
+  }
+}
