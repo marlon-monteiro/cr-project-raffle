@@ -56,4 +56,5 @@ html, body {
 body {
   background-color: var(--background-primary);
   background-image: url(../assets/background.png);
+  color: var(--content-primary);
 }

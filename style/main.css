@@ -31,7 +31,6 @@ main {
 
   & h1 {
     font: var(--text-display-medium);
-    color: var(--content-primary);
     text-transform: uppercase;
   }
 
@@ -45,4 +44,55 @@ main {
       font: var(--text-display-large);
     }
   }
+}
+
+#raffle {
+  margin-top: 2.62rem;
+
+  @media (min-width: 80em) {
+    margin: 0;
+  }
+}
+
+.raffle-title {
+  margin-bottom: 2.5rem;
+
+  & h2 {
+    margin-bottom: 0.13rem;
+    font: var(--text-label-medium);
+    text-transform: uppercase;
+  }
+
+  & h3 {
+    font: var(--text-paragraph-medium);
+    color: var(--content-tertiary);
+    margin-bottom: 2.5rem;
+  }
+
+  @media (min-width: 80em) {
+    width: 30.12rem;
+    height: 5rem;
+  }
+}
+
+.raffle-numbers {
+
+  & .columns {
+    margin-bottom: 1.25rem;
+    display: grid;
+    grid-template-columns: 5.37rem 5.37rem 5.37rem;
+    gap: 2rem;
+  }
+
+  & p {
+    font: var(--text-label-medium);
+    color: var(--content-secondary);
+  }
+
+  .back-number {
+    width: 5.37rem;
+    height: 3.5rem;
+    background-color: var(--background-tertiary);
+  }
+
 }
