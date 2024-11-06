@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --content-primary: #ffffff;
+  --content-secondary: #c7c9cc;
+  --content-tertiary: #d9d9d9;
+  --content-brand: #c58de7;
+
+  --color-inverse: #030203;
+
+  --background-primary: #020202;
+  --background-secondary: #111012;
+  --background-tertiary: #24222e;
+  --background-brand: #c58de7;
+  --background-gray: #3d3d3d;
+
+  --accent-pink: #d586e0;
+  --accent-blue: #91a1fa;
+  --accent-green: #77ccaa;
+  --accent-lime: #d1dc97;
+  --accent-red: #e9a9b3;
+
+  --gradient-border: #77c0af 0%, #d1dc97 14.84%, #e9a9b3 32.15%, #d586e0 65.79%,
+    #91a1fa 84.58%;
+  --gradient-background: #d586e0 0%, #91a1fa 98.93%;
+  --gradient-content: #c7c9cc 0%, #3d3d3d 100%;
+
+  --ff-sora: 'Sora', sans-serif;
+  --ff-roboto-mono: 'Roboto Mono', monospace;
+  --ff-roboto-flex: 'Roboto Flex', sans-serif;
+
+  --text-display-large: 900 4.5rem/130% var(--ff-sora);
+  --text-display-medium: 900 2, 5rem/130% var(--ff-sora);
+  --text-display-small: bold 2rem/130% var(--ff-sora);
+
+  --text-overline: bold 1rem/150% var(--ff-roboto-mono);
+
+  --text-paragraph-large: 400 1rem/150% var(--ff-roboto-flex);
+  --text-paragraph-medium: 400 0.875rem/150% var(--ff-roboto-flex);
+  --text-paragraph-small: 400 0.75rem/150% var(--ff-roboto-flex);
+  --text-label-medium: bold 1.25rem/150% var(--ff-roboto-flex);
+  --text-label-small: bold 1rem/150% var(--ff-roboto-flex);
+}
