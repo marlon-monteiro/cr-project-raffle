@@ -90,7 +90,7 @@ main {
         font: var(--text-label-small);
         color: var(--content-secondary);
         text-align: center;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
       }
 
       & label {
@@ -103,8 +103,8 @@ main {
         width: 100%;
         height: 100%;
         background-color: var(--background-tertiary);
-        border:none;
-        border-radius: .5rem;
+        border: none;
+        border-radius: 0.5rem;
 
         font: var(--text-display-small);
         color: var(--content-primary);
@@ -130,10 +130,10 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   width: 19.93rem;
   height: 3.5rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background-color: var(--background-tertiary);
   border: none;
 
@@ -149,5 +149,35 @@ button {
     height: 1.5rem;
     margin: 0;
     padding: 0;
+  }
+}
+
+#faq-wrapper {
+  margin-top: 5rem;
+  /* margin-bottom: 2.75rem; */
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+
+  & .faq {
+    display: flex;
+    gap: .5rem;
+    
+    & img {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    & .faq-title {
+      & h2 {
+        font: var(--text-paragraph-medium);
+        color: var(--content-brand);
+      }
+
+      & h3 {
+        font: var(--text-paragraph-small);
+        color: var(--content-secondary);
+      }
+    }
   }
 }
