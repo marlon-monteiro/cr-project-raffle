@@ -34,6 +34,7 @@
   --ff-sora: 'Sora', sans-serif;
   --ff-roboto-mono: 'Roboto Mono', monospace;
   --ff-roboto-flex: 'Roboto Flex', sans-serif;
+  --ff-inter: 'Inter', sans-serif;
 
   --text-display-large: 900 4.5rem/130% var(--ff-sora);
   --text-display-medium: 900 2.5rem/130% var(--ff-sora);
@@ -46,9 +47,12 @@
   --text-paragraph-small: 400 0.75rem/150% var(--ff-roboto-flex);
   --text-label-medium: bold 1.25rem/150% var(--ff-roboto-flex);
   --text-label-small: bold 1rem/150% var(--ff-roboto-flex);
+
+  --text-inter: 300 0.75rem/150% var(--ff-inter);
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
 }

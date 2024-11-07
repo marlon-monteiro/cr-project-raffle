@@ -9,9 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Number Picker</title>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sora:wght@100..800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sora:wght@100..800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style/index.css">
 </head>
@@ -45,43 +43,45 @@
           </h3>
         </div>
 
-        <div class="raffle-numbers">
-          
-          <div class="columns">
+        <form class="raffle-form">
 
-            <div class="column-1">
-              <p>NÚMEROS</p>
-              <div class="back-number">
-                <p>2</p>
-              </div>
+          <div class="form-columns">
+
+            <div class="column column-1">
+              <h2>NÚMEROS</h2>
+              <label for="">
+                <input type="text" value="2">
+              </label>
             </div>
 
-            <div class="column-2">
-              <p>DE</p>
-              <div class="back-number">
-                <p>1</p>
-              </div>
+            <div class="column column-2">
+              <h2>DE</h2>
+              <label for="">
+                <input type="text" value="1">
+              </label>
             </div>
 
-            <div class="column-3">
-              <p>ATÉ</p>
-              <div class="back-number">
-                <p>100</p>
-              </div>
+            <div class="column column-3">
+              <h2>ATÉ</h2>
+              <label for="">
+                <input type="text" value="100">
+              </label>
             </div>
 
           </div>
 
-          <div class="on-off">
+          <div class="form-on-off">
             <img src="assets/icons/icon-off.png" alt="">
-            <p>Não repetir esse número</p>
+            <p>Não repetir número</p>
           </div>
 
-        </div>
+          <button id="form-button">
+            SORTEAR
+            <img src="assets/icons/icon-arrow.png" alt="">
+          </button>
 
-        <div id="button-raflle">
+        </form>
 
-        </div>
 
       </div>
 
