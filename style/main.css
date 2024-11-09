@@ -98,6 +98,7 @@ main {
 }
 
 .raffle-form {
+  margin-bottom: 5rem;
   & .form-columns {
     margin-bottom: 1.25rem;
     grid-template-columns: 5.37rem 5.37rem 5.37rem;
