@@ -1,8 +1,31 @@
 const form = document.querySelector('form');
+
+
 const input1 = document.getElementById('input-1');
+const labelInput1 = input1.parentElement;
+const h2Input1 = document.querySelector('.column-1 h2')
+
 const input2 = document.getElementById('input-2');
+const labelInput2 = input2.parentElement;
+
 const input3 = document.getElementById('input-3');
+const labelInput3 = input3.parentElement;
+
 const imgOnOff = document.querySelector('.form-on-off img');
+
+input1.addEventListener('focus', () => {
+  labelInput1.classList.add('active-label');
+  h2Input1.classList.add('active-h2');
+  console.log('add class focus')
+  console.log('h2Input1 add ===', h2Input1)
+});
+
+input1.addEventListener('blur', () => {
+  labelInput1.classList.remove('active-label');
+  // h2Input1.classList.remove('active-h2');
+  console.log('remove class focus')
+  console.log("h2Input1remove ===", h2Input1)
+});
 
 imgOnOff.addEventListener('click', (event) => {
   event.preventDefault();
@@ -77,7 +100,7 @@ function generateRandomNumbers(quantity, min, max, allowRepeats) {
 function formatNumber(numbers) {
   let formatNumbers = [];
 
-  console.log('numbers que vamos iniciar forEach', numbers)
+  console.log('numbers que vamos iniciar forEach', numbers);
   numbers.forEach((number) => {
     const result = String(number).padStart(2, '0');
     console.log('result ==== ', result);

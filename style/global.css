@@ -62,3 +62,16 @@ body {
   background-image: url(../assets/background.png);
   color: var(--content-primary);
 }
+
+
+.active-label {
+  background: linear-gradient(var(--gradient-border));
+  padding: .2rem;
+
+  border-radius: 0.5rem;
+  border: none
+}
+
+.active-h2 {
+  color: red;
+}
