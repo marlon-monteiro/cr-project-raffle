@@ -1,9 +1,13 @@
-const form = document.querySelector('form');
+import seedrandom from 'https://cdn.skypack.dev/seedrandom';
 
+const form = document.querySelector('form');
+const raffle = document.getElementById('raffle');
+const result = document.getElementById('result');
+const resultNumbers = document.querySelector('.result-numbers');
 
 const input1 = document.getElementById('input-1');
 const labelInput1 = input1.parentElement;
-const h2Input1 = document.querySelector('.column-1 h2')
+const h2Input1 = document.querySelector('.column-1 h2');
 
 const input2 = document.getElementById('input-2');
 const labelInput2 = input2.parentElement;
@@ -16,14 +20,10 @@ const imgOnOff = document.querySelector('.form-on-off img');
 input1.addEventListener('focus', () => {
   labelInput1.classList.add('active-label');
   h2Input1.classList.add('active-h2');
-  console.log('add class focus')
-  console.log('h2Input1 add ===', h2Input1)
 });
 
 input1.addEventListener('blur', () => {
   labelInput1.classList.remove('active-label');
-  console.log('remove class focus')
-  console.log("h2Input1remove ===", h2Input1)
 });
 
 imgOnOff.addEventListener('click', (event) => {
@@ -41,6 +41,8 @@ imgOnOff.addEventListener('click', (event) => {
 
 form.onsubmit = (event) => {
   event.preventDefault();
+  console.clear();
+  console.log('Form submit triggered');
 
   const quantity = parseInt(input1.value);
   const min = parseInt(input2.value);
@@ -51,17 +53,13 @@ form.onsubmit = (event) => {
     alert('intervalo inválido');
   }
 
-  console.log('imgOnOff no SUBMIT', imgOnOff);
-
   if (imgOnOff.classList.contains('repeat')) {
-    console.log('repeat');
     allowRepeats = true;
   } else {
-    console.log('no repeat');
     allowRepeats = false;
   }
 
-  console.log('allowRepeats ====', allowRepeats);
+  console.log(quantity, min, max);
 
   const numbers = generateRandomNumbers(quantity, min, max, allowRepeats);
 
@@ -69,29 +67,40 @@ form.onsubmit = (event) => {
 
   console.log('numero formatado ====', numberFormated);
 
-  // numberFormated.forEach((eachNumber) => {
-  //   console.log(eachNumber);
-  // });
+  numberFormated.forEach((number) => {
+    console.log(number);
+    const newDivNumber = document.createElement('div');
+    newDivNumber.classList.add('result-number');
+    newDivNumber.textContent = number;
+    resultNumbers.append(newDivNumber);
+    console.log(resultNumbers);
+  });
+
+  raffle.classList.add('display-none');
+  result.classList.remove('display-none');
 };
 
 function generateRandomNumbers(quantity, min, max, allowRepeats) {
+  console.log('generateRandomNumbers chamado com:', quantity, min, max);
+
+  const rng = seedrandom('fixed-seed');
+
   if (allowRepeats === true) {
     let numbers = [];
     for (let i = 0; i < quantity; i++) {
-      const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-      console.log('randomNum ==== ', randomNum);
+      const randomNum = Math.floor(rng() * (max - min + 1)) + min;
       numbers.push(randomNum);
     }
-    console.log('PODE REPETIR ===', numbers);
+    console.log('if no generate ==', numbers);
     return numbers;
   } else {
     const numbersBefore = new Set();
     while (numbersBefore.size < quantity) {
-      const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+      const randomNum = Math.floor(rng() * (max - min + 1)) + min;
       numbersBefore.add(randomNum);
     }
     const numbersAfter = Array.from(numbersBefore);
-    console.log('NÃO PODE REPETIR ===', numbersAfter);
+    console.log('else no generate ==', numbersAfter);
     return numbersAfter;
   }
 }
@@ -99,12 +108,9 @@ function generateRandomNumbers(quantity, min, max, allowRepeats) {
 function formatNumber(numbers) {
   let formatNumbers = [];
 
-  console.log('numbers que vamos iniciar forEach', numbers);
   numbers.forEach((number) => {
     const result = String(number).padStart(2, '0');
-    console.log('result ==== ', result);
     formatNumbers.push(result);
   });
-  console.log('finalNumbers ====', formatNumbers);
   return formatNumbers;
 }
