@@ -35,6 +35,7 @@ main {
 #title {
   width: 19.93rem;
   height: 8.5rem;
+  margin-bottom: 4.37rem;
 
   @media (min-width: 80em) {
     width: 31.75rem;
@@ -73,8 +74,6 @@ main {
 }
 
 #raffle {
-  margin-top: 2.62rem;
-
   @media (min-width: 80em) {
     margin: 0;
   }
@@ -245,6 +244,12 @@ button img {
   width: 19.93rem;
   min-height: 13.35rem;
   margin-bottom: 4.35rem;
+
+  @media (min-width: 80em) {
+    width: 30.12rem;
+    height: 18.37rem;
+    margin-bottom: 0;
+  }
 }
 
 .result-title {
@@ -267,9 +272,22 @@ button img {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  width: 10.75rem;
+  margin: 2.5rem auto;
+  width: 100%;
   height: 6.25rem;
+  /* width: 100%;
+  height: auto; */
+}
+
+.result-number {
+  width: 5.25rem;
+  height: 6.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--content-brand);
+  font: bold 3rem/150% var(--ff-roboto-mono);
 }
 
 #result-button-id {
