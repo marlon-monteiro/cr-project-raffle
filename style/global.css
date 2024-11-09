@@ -75,3 +75,15 @@ body {
 .active-h2 {
   color: red;
 }
+
+.display-none {
+  display: none;
+}
+
+.display-show-flex {
+  display: flex;
+}
+
+.display-show-grid {
+  display: grid;
+}

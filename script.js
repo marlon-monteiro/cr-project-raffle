@@ -22,7 +22,6 @@ input1.addEventListener('focus', () => {
 
 input1.addEventListener('blur', () => {
   labelInput1.classList.remove('active-label');
-  // h2Input1.classList.remove('active-h2');
   console.log('remove class focus')
   console.log("h2Input1remove ===", h2Input1)
 });

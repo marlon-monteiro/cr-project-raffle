@@ -33,7 +33,7 @@
 
       <div id="raffle">
 
-        <div class="raffle-title">
+        <div class="raffle-title display-none">
           <h2>
             Quero sortear:
           </h2>
@@ -43,9 +43,9 @@
           </h3>
         </div>
 
-        <form class="raffle-form">
+        <form class="raffle-form display-none">
 
-          <div class="form-columns">
+          <div class="form-columns display-show-grid">
 
             <div class="column column-1">
               <h2>NÚMEROS</h2>
@@ -70,7 +70,7 @@
 
           </div>
 
-          <div class="form-on-off">
+          <div class="form-on-off display-show-flex">
             <img class="repeat" src="assets/icons/icon-off.png" alt="">
             <p>Não repetir número</p>
           </div>
@@ -82,34 +82,57 @@
 
         </form>
 
+        <div class="result">
 
-      </div>
-
-      <div id="faq-wrapper">
-
-        <div class="faq">
-          <img src="assets/icons/icon-mini-person.png" alt="">
-          <div class="faq-title">
+          <div class="result-title">
+            <h1>
+              RESULTADO DO SORTEIO
+            </h1>
             <h2>
-              Como funciona o sorteador de números?</h2>
-            <h3>
-              O sorteador utiliza um algoritmo de geração aleatória para criar números dentro do intervalo especificado
-              pelo usuário.
-            </h3>
-
+              1º RESULTADO
+            </h2>
           </div>
+
+          <div class="result-numbers">
+            NUMEROS
+          </div>
+
+          <button id="result-button-id">
+            SORTEAR NOVAMENTE
+            <img src="assets/icons/icon-replay.png" alt="">
+          </button>
+
+
+
         </div>
 
-        <div class="faq">
-          <img src="assets/icons/icon-mini-person.png" alt="">
-          <div class="faq-title">
-            <h2>
-              Posso escolher o intervalo dos números?</h2>
-            <h3>
-              Sim, você pode definir os valores mínimo e máximo para o intervalo dos números sorteados.
-            </h3>
+        <div id="faq-wrapper">
 
+          <div class="faq">
+            <img src="assets/icons/icon-mini-person.png" alt="">
+            <div class="faq-title">
+              <h2>
+                Como funciona o sorteador de números?</h2>
+              <h3>
+                O sorteador utiliza um algoritmo de geração aleatória para criar números dentro do intervalo
+                especificado
+                pelo usuário.
+              </h3>
+
+            </div>
           </div>
+
+          <div class="faq">
+            <img src="assets/icons/icon-mini-person.png" alt="">
+            <div class="faq-title">
+              <h2>
+                Posso escolher o intervalo dos números?</h2>
+              <h3>
+                Sim, você pode definir os valores mínimo e máximo para o intervalo dos números sorteados.
+              </h3>
+            </div>
+          </div>
+
         </div>
 
       </div>
