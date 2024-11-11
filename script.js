@@ -3,7 +3,15 @@ import seedrandom from 'https://cdn.skypack.dev/seedrandom';
 const form = document.querySelector('form');
 const raffle = document.getElementById('raffle');
 const result = document.getElementById('result');
+const resultTitle = document.querySelector('.result-title');
 const resultNumbers = document.querySelector('.result-numbers');
+const resultImage = document.querySelector(
+  '.result-numbers-container .result-image',
+);
+const resultNumber = document.querySelector(
+  '.result-numbers-container .result-number',
+);
+const resultButton = document.querySelector('.result-button');
 
 const input1 = document.getElementById('input-1');
 const labelInput1 = input1.parentElement;
@@ -68,16 +76,100 @@ form.onsubmit = (event) => {
   console.log('numero formatado ====', numberFormated);
 
   numberFormated.forEach((number) => {
-    console.log(number);
-    const newDivNumber = document.createElement('div');
-    newDivNumber.classList.add('result-number');
-    newDivNumber.textContent = number;
-    resultNumbers.append(newDivNumber);
-    console.log(resultNumbers);
+    console.log('number dentro do forEach', number);
+
+    const newDivContainer = document.createElement('div');
+    newDivContainer.classList.add('result-numbers-container');
+
+    const newBackgroundNumber = document.createElement('img');
+    newBackgroundNumber.classList.add('result-image');
+    newBackgroundNumber.src = 'assets/background-number-1.png';
+
+    newBackgroundNumber.classList.remove('grow-rotate');
+    console.log(
+      'newBackgroundNumber verificar class grow rotate na image====',
+      newBackgroundNumber,
+    );
+
+    const newNumber = document.createElement('p');
+    newNumber.classList.add('result-number');
+    newNumber.textContent = number;
+    console.log('newNumber dentro do forEach', newNumber);
+
+    newDivContainer.append(newBackgroundNumber, newNumber);
+
+    resultNumbers.append(newDivContainer);
+    console.log('resultNumbers dentro do forEach', resultNumbers);
   });
 
   raffle.classList.add('display-none');
   result.classList.remove('display-none');
+
+  resultTitle.classList.add('fade-in');
+
+  const allNumberContainers = document.querySelectorAll(
+    '.result-numbers-container',
+  );
+
+  console.log(
+    'allNumberContainers, verificar se tem a class grow rotate no image====',
+    allNumberContainers,
+  );
+
+  allNumberContainers.forEach((containerNumber, index) => {
+    const imageContainerResult = containerNumber.querySelector('.result-image');
+    const numberContainerResult =
+      containerNumber.querySelector('.result-number');
+    numberContainerResult.style.visibility = 'hidden';
+    resultButton.style.visibility = 'hidden';
+
+    const delay = index * 4500;
+    console.log(
+      'numberContainerResult no inicio do foreach sem class fade in',
+      numberContainerResult,
+    );
+
+    console.log(
+      'imageContainerResult antes da class grow rotate',
+      imageContainerResult,
+    );
+
+    setTimeout(() => {
+      imageContainerResult.classList.add('grow-rotate');
+      console.log(
+        'imageContainerResult depois da class grow rotate',
+        imageContainerResult,
+      );
+
+      imageContainerResult.addEventListener(
+        'animationend',
+        (event) => {
+          console.log('animationend triggered');
+
+          if (event.animationName === 'growRotate') {
+            // setTimeout(() => {
+            numberContainerResult.style.visibility = 'visible';
+            numberContainerResult.classList.add('fade-in');
+            console.log('numero apareceu com fade-in');
+            // }, 100);
+
+            setTimeout(() => {
+              imageContainerResult.classList.add('display-none');
+              console.log('display none na image');
+              numberContainerResult.classList.add('change-color-brand');
+            }, 1000);
+          }
+        },
+        { once: true },
+      );
+    }, delay);
+    console.log('numberContainerResult ===', numberContainerResult);
+  });
+
+  setTimeout(() => {
+    resultButton.style.visibility = 'visible';
+    resultButton.classList.add('fade-in');
+  }, 8000);
 };
 
 function generateRandomNumbers(quantity, min, max, allowRepeats) {

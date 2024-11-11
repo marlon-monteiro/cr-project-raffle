@@ -72,10 +72,6 @@ body {
   border: none
 }
 
-.active-h2 {
-  color: red;
-}
-
 .display-none {
   display: none;
 }
@@ -87,3 +83,4 @@ body {
 .display-show-grid {
   display: grid;
 }
+

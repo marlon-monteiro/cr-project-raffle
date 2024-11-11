@@ -1,0 +1,47 @@
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.result-title.fade-in {
+  animation-delay: 0.2s;
+}
+
+.result-number.fade-in {
+  animation-delay: 2.7s;
+}
+
+.result-button.fade-in {
+  animation-delay: 2.5s;
+}
+
+.result-numbers .result-number {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 1.5s;
+}
+
+.grow-rotate {
+  animation: growRotate 4s ease forwards;
+}
+
+@keyframes growRotate {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
