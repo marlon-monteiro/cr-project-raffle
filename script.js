@@ -25,6 +25,8 @@ const labelInput3 = input3.parentElement;
 
 const imgOnOff = document.querySelector('.form-on-off img');
 
+let quantity, min, max, allowRepeats;
+
 input1.addEventListener('focus', () => {
   labelInput1.classList.add('active-label');
   h2Input1.classList.add('active-h2');
@@ -50,34 +52,33 @@ imgOnOff.addEventListener('click', (event) => {
 form.onsubmit = (event) => {
   event.preventDefault();
   console.clear();
-  console.log('Form submit triggered');
 
-  const quantity = parseInt(input1.value);
-  const min = parseInt(input2.value);
-  const max = parseInt(input3.value);
-  let allowRepeats = false;
+  quantity = parseInt(input1.value);
+  min = parseInt(input2.value);
+  max = parseInt(input3.value);
+  allowRepeats = false;
 
   if (min > max) {
     alert('intervalo inválido');
+    return;
   }
 
+  runRaffle();
+};
+
+function runRaffle() {
+  resetResults();
   if (imgOnOff.classList.contains('repeat')) {
     allowRepeats = true;
   } else {
     allowRepeats = false;
   }
 
-  console.log(quantity, min, max);
-
   const numbers = generateRandomNumbers(quantity, min, max, allowRepeats);
 
   const numberFormated = formatNumber(numbers);
 
-  console.log('numero formatado ====', numberFormated);
-
   numberFormated.forEach((number) => {
-    console.log('number dentro do forEach', number);
-
     const newDivContainer = document.createElement('div');
     newDivContainer.classList.add('result-numbers-container');
 
@@ -86,20 +87,14 @@ form.onsubmit = (event) => {
     newBackgroundNumber.src = 'assets/background-number-1.png';
 
     newBackgroundNumber.classList.remove('grow-rotate');
-    console.log(
-      'newBackgroundNumber verificar class grow rotate na image====',
-      newBackgroundNumber,
-    );
 
     const newNumber = document.createElement('p');
     newNumber.classList.add('result-number');
     newNumber.textContent = number;
-    console.log('newNumber dentro do forEach', newNumber);
 
     newDivContainer.append(newBackgroundNumber, newNumber);
 
     resultNumbers.append(newDivContainer);
-    console.log('resultNumbers dentro do forEach', resultNumbers);
   });
 
   raffle.classList.add('display-none');
@@ -111,11 +106,6 @@ form.onsubmit = (event) => {
     '.result-numbers-container',
   );
 
-  console.log(
-    'allNumberContainers, verificar se tem a class grow rotate no image====',
-    allNumberContainers,
-  );
-
   allNumberContainers.forEach((containerNumber, index) => {
     const imageContainerResult = containerNumber.querySelector('.result-image');
     const numberContainerResult =
@@ -124,38 +114,19 @@ form.onsubmit = (event) => {
     resultButton.style.visibility = 'hidden';
 
     const delay = index * 4500;
-    console.log(
-      'numberContainerResult no inicio do foreach sem class fade in',
-      numberContainerResult,
-    );
-
-    console.log(
-      'imageContainerResult antes da class grow rotate',
-      imageContainerResult,
-    );
 
     setTimeout(() => {
       imageContainerResult.classList.add('grow-rotate');
-      console.log(
-        'imageContainerResult depois da class grow rotate',
-        imageContainerResult,
-      );
 
       imageContainerResult.addEventListener(
         'animationend',
         (event) => {
-          console.log('animationend triggered');
-
           if (event.animationName === 'growRotate') {
-            // setTimeout(() => {
             numberContainerResult.style.visibility = 'visible';
             numberContainerResult.classList.add('fade-in');
-            console.log('numero apareceu com fade-in');
-            // }, 100);
 
             setTimeout(() => {
               imageContainerResult.classList.add('display-none');
-              console.log('display none na image');
               numberContainerResult.classList.add('change-color-brand');
             }, 1000);
           }
@@ -163,18 +134,15 @@ form.onsubmit = (event) => {
         { once: true },
       );
     }, delay);
-    console.log('numberContainerResult ===', numberContainerResult);
   });
 
   setTimeout(() => {
     resultButton.style.visibility = 'visible';
     resultButton.classList.add('fade-in');
   }, 8000);
-};
+}
 
 function generateRandomNumbers(quantity, min, max, allowRepeats) {
-  console.log('generateRandomNumbers chamado com:', quantity, min, max);
-
   const rng = seedrandom('fixed-seed');
 
   if (allowRepeats === true) {
@@ -183,7 +151,6 @@ function generateRandomNumbers(quantity, min, max, allowRepeats) {
       const randomNum = Math.floor(rng() * (max - min + 1)) + min;
       numbers.push(randomNum);
     }
-    console.log('if no generate ==', numbers);
     return numbers;
   } else {
     const numbersBefore = new Set();
@@ -192,7 +159,6 @@ function generateRandomNumbers(quantity, min, max, allowRepeats) {
       numbersBefore.add(randomNum);
     }
     const numbersAfter = Array.from(numbersBefore);
-    console.log('else no generate ==', numbersAfter);
     return numbersAfter;
   }
 }
@@ -206,3 +172,13 @@ function formatNumber(numbers) {
   });
   return formatNumbers;
 }
+
+function resetResults() {
+  resultNumbers.innerHTML = '';
+  resultButton.style.visibility = 'hidden';
+  resultTitle.classList.remove('fade-in');
+}
+
+resultButton.addEventListener('click', ()=>{
+  runRaffle()
+})
